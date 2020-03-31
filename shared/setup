@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+set -x # Show commands
+set -eu # Errors/undefined vars are fatal
+set -o pipefail # Check all commands in a pipeline
+
+PROJECT=$(basename ${INDEX_ROOT})
+
+date
+
+mkdir -p ${INDEX_ROOT}/objdir
+
+pushd $INDEX_ROOT
+if [ ! -d "git" ]
+then
+	echo Downloading repository
+	git clone --recursive https://github.com/alliedmodders/${PROJECT} git
+else
+	pushd ${GIT_ROOT}
+	git pull
+	popd
+fi
+
+function should_create_blame {
+	if [[ ${PROJECT} == *"hlsdk"* ]]; then
+		return 0
+	fi
+	if [[ ${PROJECT} == *"hl2sdk"* ]]; then
+		return 0
+	fi
+	if [ ! -d "blame" ]; then
+		return 1
+	fi
+	return 0
+}
+
+should_create_blame
+if [ "$?" -eq 1 ]; then
+	echo Generating blame
+	date
+	mkdir blame
+	pushd blame
+	git init .
+	popd
+	python ${MOZSEARCH_PATH}/blame/transform-repo.py ${GIT_ROOT} ${BLAME_ROOT}
+fi
+
+popd
+
+date

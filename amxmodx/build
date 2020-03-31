@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -x # Show commands
+set -eu # Errors/undefined vars are fatal
+set -o pipefail # Check all commands in a pipeline
+
+NULL=
+DEPS=${HOME}/deps
+SRC=${GIT_ROOT}
+
+${MOZSEARCH_PATH}/scripts/indexer-setup.py > ${INDEX_ROOT}/config
+. ${INDEX_ROOT}/config
+
+pushd ${OBJDIR}
+python ${SRC}/configure.py \
+	--hlsdk=/hgshare/hlsdk \
+	--metamod=${DEPS}/metamod-hl1 \
+	--mysql=${DEPS}/mysql-5.6 \
+	${NULL}
+ambuild
+popd
+
+date

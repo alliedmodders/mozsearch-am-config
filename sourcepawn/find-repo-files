@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+export PYTHONDONTWRITEBYTECODE=1
+exec $(dirname $0)/../find-repo-files.py $*

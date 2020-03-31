@@ -1,0 +1,61 @@
+{
+  "mozsearch_path": "$MOZSEARCH_PATH",
+
+  "default_tree": "sourcemod",
+
+  "trees": {
+    "sourcemod": {
+      "index_path": "$WORKING/sourcemod",
+      "files_path": "$WORKING/sourcemod/git",
+      "objdir_path": "$WORKING/sourcemod/objdir",
+      "git_path": "$WORKING/sourcemod/git",
+      "git_blame_path": "$WORKING/sourcemod/blame",
+      "github_repo": "https://github.com/alliedmodders/sourcemod",
+      "codesearch_path": "$WORKING/sourcemod/livegrep.idx",
+      "codesearch_port": 8080
+    },
+
+    "metamod-source": {
+      "index_path": "$WORKING/metamod-source",
+      "files_path": "$WORKING/metamod-source/git",
+      "objdir_path": "$WORKING/metamod-source/objdir",
+      "git_path": "$WORKING/metamod-source/git",
+      "git_blame_path": "$WORKING/metamod-source/blame",
+      "github_repo": "https://github.com/alliedmodders/metamod-source",
+      "codesearch_path": "$WORKING/metamod-source/livegrep.idx",
+      "codesearch_port": 8081
+    },
+
+    "sourcepawn": {
+      "index_path": "$WORKING/sourcepawn",
+      "files_path": "$WORKING/sourcepawn/git",
+      "objdir_path": "$WORKING/sourcepawn/objdir",
+      "git_path": "$WORKING/sourcepawn/git",
+      "git_blame_path": "$WORKING/sourcepawn/blame",
+      "github_repo": "https://github.com/alliedmodders/sourcepawn",
+      "codesearch_path": "$WORKING/sourcepawn/livegrep.idx",
+      "codesearch_port": 8082
+    },
+
+    "amxmodx": {
+      "index_path": "$WORKING/amxmodx",
+      "files_path": "$WORKING/amxmodx/git",
+      "objdir_path": "$WORKING/amxmodx/objdir",
+      "git_path": "$WORKING/amxmodx/git",
+      "git_blame_path": "$WORKING/amxmodx/blame",
+      "github_repo": "https://github.com/alliedmodders/amxmodx",
+      "codesearch_path": "$WORKING/amxmodx/livegrep.idx",
+      "codesearch_port": 8083
+    },
+
+    "hlsdk": {
+      "index_path": "$WORKING/hlsdk",
+      "files_path": "$WORKING/hlsdk/git",
+      "objdir_path": "$WORKING/hlsdk/objdir",
+      "git_path": "$WORKING/hlsdk/git",
+      "github_repo": "https://github.com/alliedmodders/hlsdk",
+      "codesearch_path": "$WORKING/hlsdk/livegrep.idx",
+      "codesearch_port": 8084
+    }
+  }
+}

@@ -1,0 +1,101 @@
+<div class="intro">
+
+<h1>AlliedModders Code Search</h1>
+
+<h3>Repositories indexed</h3>
+<table style="width:100%" border="1">
+<thead><tr><th rowspan="2">Repository</th>
+           <th rowspan="2">Text search</th>
+           <th rowspan="2">Blame</th>
+           <th colspan="1">Language semantic analysis</th>
+       </tr><tr>
+           <th>C++</th>
+       </tr></thead>
+       <!-- Repository                                                      Text search     Blame           C++             -->
+<tbody><tr><td><a href="/sourcemod/source">sourcemod</a></td>               <td yes></td>   <td yes></td>   <td yes></td>   </tr>
+<tbody><tr><td><a href="/metamod-source/source">metamod-source</a></td>     <td yes></td>   <td yes></td>   <td yes></td>   </tr>
+<tbody><tr><td><a href="/sourcepawn/source">sourcepawn</a></td>             <td yes></td>   <td yes></td>   <td yes></td>   </tr>
+<tbody><tr><td><a href="/amxmodx/source">amxmodx</a></td>                   <td yes></td>   <td no></td>    <td no></td>    </tr>
+<tbody><tr><td><a href="/hlsdk/source">hlsdk</a></td>                       <td yes></td>   <td no></td>    <td no></td>    </tr>
+</tbody></table>
+
+<h3>Query Language</h3>
+
+Queries entered into the search box use exact string matching. No
+search operators are supported. Case insensitive matching and regular
+expression matching can be requested with the check boxes.
+
+Path filtering uses globbing. A path matches even if only a substring
+of the path is matched by the glob. Use the <code>^</code>
+and <code>$</code> operators to match the beginning or end of the
+path. Here are some examples:
+
+<dl>
+
+<dt><code>test</code></dt>
+<dd>Find all paths containing the substring "<code>test</code>".
+
+<dt><code>^js/src</code></dt>
+<dd>Find all paths starting with <code>js/src</code>.
+
+<dt><code>*.cpp</code></dt>
+<dd>Find all paths containing "<code>.cpp</code>".
+
+<dt><code>*.cpp$</code></dt>
+<dd>Find all paths ending with "<code>.cpp</code>".
+
+<dt><code>^js/src/*.cpp$</code></dt>
+<dd>Find all C++ files in <code>js/src</code>, but not in
+subdirectories (i.e., <code>*</code> does not match <code>/</code>).
+
+<dt><code>^js/src/**.cpp$</code></dt>
+<dd>Find all C++ files in <code>js/src</code> or in subdirectories
+(i.e., <code>**</code> matches <code>/</code>).
+
+<dt><code>^js/src/**.{cpp,h}$</code></dt>
+<dd>Find all C++ source or header files in <code>js/src</code> or in subdirectories.
+
+</dl>
+
+<h3>Cross-referencing</h3>
+
+Once you have arrived at a file, you can mouse over identifiers. If
+the color of the identifier changes, then clicking on the identifier
+will open a context menu for cross-referencing identifiers.
+
+<p>
+<div id="file">
+You can see an example by mousing
+over &ldquo;<code><span data-id="#reviveCrashedTab" data-i="0">reviveCrashedTab</span></code>&rdquo; and
+clicking. A context menu will open and you can choose to search for all references to the symbol
+(definitions, assignments, and uses).
+
+<p>
+In JavaScript code, a second option is sometimes offered.  Try mousing
+over the same identifier in the following:
+&ldquo;<code>SessionStore.<span data-id="#reviveCrashedTab" data-i="1">reviveCrashedTab</span></code>&rdquo;.
+In this case, you're given the opportunity to search for
+<code>SessionStore.reviveCrashedTab</code> (and not
+<code>SessionStoreInternal.reviveCrashedTab</code>). Also, since there is only one definition of
+<code>SessionStore.reviveCrashedTab</code>, you can jump directly to it.
+</div>
+
+<p>
+In some cases there is ambiguity whether to search for C++ or
+JavaScript implementations of an XPCOM method. Searching for the
+method from C++ or JavaScript will find the same-language
+implementations of that method as well as the IDL
+declaration. Visiting the IDL declaration and searching from there
+will yield all implementations.
+
+<h3>Syntax Highlighting</h3>
+
+Mozsearch uses semantic syntax highlighting. Types are shown in teal
+(blue-green). Definitions are shown in bold. Hovering over an
+identifier highlights other uses of that identifier.
+
+</div>
+
+<p>
+You can contribute to Searchfox (mozsearch)! Visit
+its <a href="https://github.com/mozsearch/mozsearch" style="text-decoration: underline;">Github page</a>.
